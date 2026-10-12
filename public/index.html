@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examly — Online Examination</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Examly home"><span class="brand-mark">E</span> examly</a>
+    <div class="topbar-right"><span class="live-dot"></span><span>Practice environment</span><span class="avatar">C</span></div>
+  </header>
+
+  <main class="page">
+    <section id="homeView">
+      <div class="eyebrow">CANDIDATE PORTAL</div>
+      <h1>Your exam, <span class="muted">made simple.</span></h1>
+      <p class="intro">Review the exam details, answer each question, and submit to see your result.</p>
+
+      <article class="exam-card">
+        <div class="exam-card-top">
+          <div class="subject-icon">CS</div>
+          <span class="status-pill"><span class="live-dot"></span> Available</span>
+        </div>
+        <p class="eyebrow">PRACTICE EXAM · #101</p>
+        <h2 id="examTitle">Loading exam...</h2>
+        <p id="examDescription" class="card-description"></p>
+        <div class="stats">
+          <div><span class="stat-label">QUESTIONS</span><strong id="questionCount">—</strong></div>
+          <div><span class="stat-label">TOTAL MARKS</span><strong id="totalMarks">—</strong></div>
+          <div><span class="stat-label">DURATION</span><strong id="duration">—</strong></div>
+        </div>
+        <button id="startBtn" class="primary-btn">Start examination <span aria-hidden="true">→</span></button>
+      </article>
+      <p class="small-note">Demo application · Answers and results are stored in memory while the server is running.</p>
+    </section>
+
+    <section id="examView" class="hidden">
+      <div class="exam-header">
+        <div><div class="eyebrow">EXAMINATION IN PROGRESS</div><h1 id="activeExamTitle">Practice exam</h1></div>
+        <div class="timer-box"><span class="timer-label">TIME LEFT</span><strong id="timer">20:00</strong></div>
+      </div>
+      <div class="progress-row"><span id="progressText">Question 1 of 5</span><span id="answeredText">0 answered</span></div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <div class="exam-layout">
+        <article class="question-card">
+          <div class="question-meta"><span id="questionNumber">QUESTION 01</span><span class="mark-pill">1 mark</span></div>
+          <h2 id="questionText">Question text</h2>
+          <div id="options" class="options"></div>
+          <div class="question-actions">
+            <button id="prevBtn" class="secondary-btn">← Previous</button>
+            <button id="nextBtn" class="primary-btn">Next question →</button>
+          </div>
+        </article>
+        <aside class="question-nav">
+          <h3>Question navigator</h3>
+          <p>Select a number to move between questions.</p>
+          <div id="questionNumbers" class="number-grid"></div>
+          <div class="legend"><span class="legend-dot answered"></span> Answered <span class="legend-dot"></span> Unanswered</div>
+          <button id="submitBtn" class="submit-btn">Submit examination</button>
+        </aside>
+      </div>
+      <p id="saveStatus" class="save-status" aria-live="polite">Your answers are saved as you go.</p>
+    </section>
+
+    <section id="resultView" class="hidden result-view">
+      <div class="result-symbol">✓</div>
+      <div class="eyebrow">EXAM SUBMITTED</div>
+      <h1>Submission complete.</h1>
+      <p class="intro">Your practice result is ready.</p>
+      <article class="result-card">
+        <span class="stat-label">YOUR SCORE</span>
+        <div class="score"><strong id="score">0</strong><span id="scoreTotal">/ 5</span></div>
+        <div class="result-track"><div id="resultBar"></div></div>
+        <div class="result-details"><span>Percentage</span><strong id="percentage">0%</strong></div>
+        <div class="result-details"><span>Status</span><strong class="complete-status">Completed</strong></div>
+        <div class="result-details"><span>Submitted at</span><strong id="submittedAt">—</strong></div>
+      </article>
+      <button id="restartBtn" class="primary-btn">Back to exam overview</button>
+      <p class="small-note">This is a practice result, calculated by the demo backend.</p>
+    </section>
+
+    <div id="toast" class="toast hidden" role="status"></div>
+  </main>
+  <footer><span>EXAMLY</span><span>Online Examination Platform · Demo</span></footer>
+  <script src="/app.js"></script>
+</body>
+</html>
